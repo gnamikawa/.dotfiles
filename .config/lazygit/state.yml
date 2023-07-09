@@ -1,0 +1,10 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/genzo/.dotfiles
+startuppopupversion: 5
+customcommandshistory:
+- q
+- quit
+- git status
+- w
+hidecommandlog: true

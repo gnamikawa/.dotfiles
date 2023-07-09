@@ -1,0 +1,156 @@
+# i3 config file
+
+# Open specific applications in floating mode
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="calamares"] floating enable border normal
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="fpakman"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro-hello"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [title="About Pale Moon"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Skype"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# startup
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+exec --no-startup-id pulseaudio
+exec --no-startup-id xfce4-power-manager
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id sbxkb
+
+exec --no-startup-id pa-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+
+# exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+# exec --no-startup-id pamac-tray
+# exec --no-startup-id clipit
+# exec --no-startup-id volumeicon
+# exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_green
+# exec --no-startup-id xautolock -time 10 -locker blurlock
+
+bindsym $mod+Ctrl+m exec pavucontrol
+
+# variables
+set $mod mod1
+set $win mod4
+
+# options
+default_border pixel 1
+gaps inner 20
+floating_modifier $win
+focus_follows_mouse no
+focus_wrapping no
+default_orientation horizontal
+workspace_layout default
+
+# window colours:       border  bg      text    indicator child_border
+client.focused          #000000 #FFFFFF #000000 #FFFFFF
+client.focused_inactive #000000 #000000 #000000 #000000
+client.unfocused        #000000 #444444 #000000 #444444
+client.urgent           #000000 #000000 #000000 #000000
+
+bar {
+  position top
+  status_command i3blocks -c ~/.config/i3blocks/top.conf
+  tray_output none
+}
+
+bar {
+  status_command i3blocks -c ~/.config/i3blocks/bottom.conf
+  position bottom
+  tray_output eDP-1
+  output primary
+  output eDP-1
+  workspace_buttons no
+}
+
+#
+# KEYBINDINGS
+# Use xev to get key names
+#
+
+bindsym $mod+r exec ranger
+bindsym $mod+F4 kill
+bindsym $win+f floating toggle
+
+bindsym $mod+Shift+e exec "i3-msg exit"
+bindsym $mod+Shift+r exec "i3-msg restart"
+
+bindsym $mod+F3 exec --no-startup-id "dmenu_run -m 0"
+bindsym $win+t exec "i3-sensible-terminal"
+bindsym Control+Shift+1 exec --no-startup-id i3-scrot
+bindsym Control+Shift+4 --release exec --no-startup-id i3-scrot -s
+bindsym Control+Shift+Escape exec "i3-sensible-terminal -e 'htop'"
+
+bindsym XF86AudioMute exec "amixer set Master toggle"       # F1
+bindsym XF86AudioMicMute exec "amixer set Capture toggle"   # F4
+bindsym XF86MonBrightnessUp exec "brightnessctl set +10%"   # F6
+bindsym XF86MonBrightnessDown exec "brightnessctl set 10%-" # F5
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $win+1 move window to workspace 1
+bindsym $win+2 move window to workspace 2
+bindsym $win+3 move window to workspace 3
+bindsym $win+4 move window to workspace 4
+bindsym $win+5 move window to workspace 5
+bindsym $win+6 move window to workspace 6
+bindsym $win+7 move window to workspace 7
+bindsym $win+8 move window to workspace 8
+bindsym $win+9 move window to workspace 9
+
+bindsym $win+h move workspace to output left
+bindsym $win+j move workspace to output down
+bindsym $win+k move workspace to output up
+bindsym $win+l move workspace to output right
+
+bindsym $win+Up resize grow height 10
+bindsym $win+Down resize shrink height 10
+bindsym $win+Right resize grow width 10
+bindsym $win+Left resize shrink width 10
+
+bindsym $win+plus split h
+bindsym $win+minus split v
