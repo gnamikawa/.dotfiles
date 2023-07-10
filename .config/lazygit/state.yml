@@ -1,6 +1,25 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/genzo/.dotfiles
+- /home/mujin/mujin/checkoutroot/app-kitz-chino
+- /home/mujin/mujin/checkoutroot/app-common
+- /home/mujin/mujin/checkoutroot/ui-components
+- /home/mujin/mujin/checkoutroot/frontendcli
+- /home/mujin/mujin/checkoutroot/app-robot-control
+- /home/mujin/mujin/checkoutroot/app-base-system
+- /home/mujin/mujin/checkoutroot/app-dest-goals
+- /home/mujin/mujin/checkoutroot/app-signalmap-editor
+- /home/mujin/mujin/checkoutroot/orchestrator
+- /home/mujin/mujin/checkoutroot/commonui
+- /home/mujin/mujin/checkoutroot/binpickingui
+- /home/mujin/mujin/checkoutroot/app-itl-hub
+- /home/mujin/mujin/checkoutroot/robotbridgeclient
+- /home/mujin/mujin/checkoutroot/robotbridgeclient/jhbuildrobotbridgeclient
+- /home/mujin/mujin/checkoutroot/app-system-setting
+- /home/mujin/mujin/jhbuildappcontroller
+- /home/mujin/mujin/jhbuildcommon
+- /home/mujin/mujin/checkoutroot/app-playback
+- /home/mujin/mujin/checkoutroot/app-scene-editor
+- /home/mujin/repositories/lazygit
 startuppopupversion: 5
 customcommandshistory:
 - q
