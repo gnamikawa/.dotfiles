@@ -16,7 +16,7 @@
   split_vert = <Alt>underscore
   close_term = <Primary><Shift>w
   layout_launcher = ""
-  help = asciitilde
+  help = ""
 [profiles]
   [[default]]
     background_color = "#241f31"
