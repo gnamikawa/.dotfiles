@@ -134,6 +134,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       autoformat = true,
+      format = { timeout_ms = 10000 },
       servers = { eslint = {} },
       setup = {
         eslint = function()
