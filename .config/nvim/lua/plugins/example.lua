@@ -19,7 +19,7 @@ return {
   { "chentoast/marks.nvim" },
   { "kevinhwang91/promise-async" },
   { "nvim-lua/plenary.nvim" },
-  { "echasnovski/mini.pairs", enabled = false },
+  { "echasnovski/mini.pairs",                         enabled = false },
 
   {
     "sindrets/diffview.nvim",
@@ -41,22 +41,22 @@ return {
   },
   {
     "svermeulen/vim-cutlass",
-    config = function ()
-      vim.keymap.set( "n", "x", "d")
-      vim.keymap.set( "v", "x", "d")
-      vim.keymap.set( "n", "xx", "dd")
-      vim.keymap.set( "n", "X", "D")
+    config = function()
+      vim.keymap.set("n", "x", "d")
+      vim.keymap.set("v", "x", "d")
+      vim.keymap.set("n", "xx", "dd")
+      vim.keymap.set("n", "X", "D")
     end
   },
   {
     "lambdalisue/suda.vim",
-    config = function ()
+    config = function()
       vim.g.suda_smart_edit = true
     end
   },
   {
     "Mofiqul/vscode.nvim",
-    config = function ()
+    config = function()
       require('vscode').load('dark')
     end
   },
@@ -65,7 +65,7 @@ return {
     requires = {
       "kevinhwang91/promise-async"
     },
-    config = function ()
+    config = function()
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
@@ -74,8 +74,8 @@ return {
       local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
       for _, ls in ipairs(language_servers) do
         require('lspconfig')[ls].setup({
-        capabilities = capabilities
-        -- you can add other fields for setting up lsp server in this table
+          capabilities = capabilities
+          -- you can add other fields for setting up lsp server in this table
         })
       end
       require('ufo').setup()
@@ -104,8 +104,8 @@ return {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.confirm()
-          -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-          -- they way you will only jump inside the snippet region
+            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+            -- they way you will only jump inside the snippet region
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           elseif has_words_before() then
@@ -170,16 +170,16 @@ return {
   {
     "fedepujol/move.nvim",
     keys = {
-      { "<A-left>", "<cmd>MoveHChar(-1)<CR>", desc = "Move char area left", noremap = true },
-      { "<A-down>", "<cmd>MoveLine(1)<CR>", desc = "Move line area up", noremap = true },
-      { "<A-up>", "<cmd>MoveLine(-1)<CR>", desc = "Move line area down",  noremap = true },
-      { "<A-right>", "<cmd>MoveHChar(1)<CR>", desc = "Move char area right", noremap = true },
-      { "<leader>wf", "<cmd>MoveWord(1)<CR>", desc = "Move word forward", noremap = true },
-      { "<leader>wb", "<cmd>MoveWord(-1)<CR>", desc = "Move word backward", noremap = true },
-      { "<A-left>", ":MoveHBlock(-1)<CR>", desc = "Move visual area left", mode = "v", noremap = true },
-      { "<A-down>", ":MoveBlock(1)<CR>", desc = "Move visual area down", mode = "v", noremap = true },
-      { "<A-up>", ":MoveBlock(-1)<CR>", desc = "Move visual area up", mode = "v" , noremap = true },
-      { "<A-right>", ":MoveHBlock(1)<CR>", desc = "Move visual area right", mode = "v" , noremap = true },
+      { "<A-left>",   "<cmd>MoveHChar(-1)<CR>", desc = "Move char area left",    noremap = true },
+      { "<A-down>",   "<cmd>MoveLine(1)<CR>",   desc = "Move line area up",      noremap = true },
+      { "<A-up>",     "<cmd>MoveLine(-1)<CR>",  desc = "Move line area down",    noremap = true },
+      { "<A-right>",  "<cmd>MoveHChar(1)<CR>",  desc = "Move char area right",   noremap = true },
+      { "<leader>wf", "<cmd>MoveWord(1)<CR>",   desc = "Move word forward",      noremap = true },
+      { "<leader>wb", "<cmd>MoveWord(-1)<CR>",  desc = "Move word backward",     noremap = true },
+      { "<A-left>",   ":MoveHBlock(-1)<CR>",    desc = "Move visual area left",  mode = "v",    noremap = true },
+      { "<A-down>",   ":MoveBlock(1)<CR>",      desc = "Move visual area down",  mode = "v",    noremap = true },
+      { "<A-up>",     ":MoveBlock(-1)<CR>",     desc = "Move visual area up",    mode = "v",    noremap = true },
+      { "<A-right>",  ":MoveHBlock(1)<CR>",     desc = "Move visual area right", mode = "v",    noremap = true },
     }
   },
   {
@@ -189,38 +189,59 @@ return {
       word_diff = true
     },
     keys = {
-      { "<leader>gw", ":Gitsigns toggle_word_diff<CR>", desc = "Toggle inline word diff", mode = "n" , noremap = true },
-      { "<leader>gl", ":Gitsigns toggle_linehl<CR>", desc = "Toggle inline line diff", mode = "n" , noremap = true },
+      { "<leader>gw", ":Gitsigns toggle_word_diff<CR>", desc = "Toggle inline word diff", mode = "n", noremap = true },
+      { "<leader>gl", ":Gitsigns toggle_linehl<CR>",    desc = "Toggle inline line diff", mode = "n", noremap = true },
     },
     {
       "olrtg/emmet-language-server",
-      config = function ()
+      config = function()
         vim.api.nvim_create_autocmd({ "FileType" }, {
-        pattern = "astro,css,eruby,html,htmldjango,javascriptreact,less,pug,sass,scss,svelte,typescriptreact,vue",
-        callback = function()
-          vim.lsp.start({
-            cmd = { "emmet-language-server", "--stdio" },
-            root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
-            init_options = {
-              --- @type table<string, any> https://docs.emmet.io/customization/preferences/
-              preferences = {},
-              --- @type "always" | "never" defaults to `"always"`
-              showexpandedabbreviation = "always",
-              --- @type boolean defaults to `true`
-              showabbreviationsuggestions = true,
-              --- @type boolean defaults to `false`
-              showsuggestionsassnippets = false,
-              --- @type table<string, any> https://docs.emmet.io/customization/syntax-profiles/
-              syntaxprofiles = {},
-              --- @type table<string, string> https://docs.emmet.io/customization/snippets/#variables
-              variables = {},
-              --- @type string[]
-              excludelanguages = {},
-            },
-          })
-        end,
-      })
+          pattern = "astro,css,eruby,html,htmldjango,javascriptreact,less,pug,sass,scss,svelte,typescriptreact,vue",
+          callback = function()
+            vim.lsp.start({
+              cmd = { "emmet-language-server", "--stdio" },
+              root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
+              init_options = {
+                --- @type table<string, any> https://docs.emmet.io/customization/preferences/
+                preferences = {},
+                --- @type "always" | "never" defaults to `"always"`
+                showexpandedabbreviation = "always",
+                --- @type boolean defaults to `true`
+                showabbreviationsuggestions = true,
+                --- @type boolean defaults to `false`
+                showsuggestionsassnippets = false,
+                --- @type table<string, any> https://docs.emmet.io/customization/syntax-profiles/
+                syntaxprofiles = {},
+                --- @type table<string, string> https://docs.emmet.io/customization/snippets/#variables
+                variables = {},
+                --- @type string[]
+                excludelanguages = {},
+              },
+            })
+          end,
+        })
       end,
     }
+  },
+  {
+    "ribelo/taskwarrior.nvim",
+    keys = {
+      {
+        "<leader>t",
+        desc = "Taskwarrior",
+      },
+      {
+        "<leader>tt",
+        function()
+          require("taskwarrior_nvim").browser({ "ready" })
+        end,
+        desc = "Ongoing tasks",
+        mode = "n",
+        noremap = true
+      }
+    }
+  },
+  {
+    "xarthurx/taskwarrior.vim"
   }
 }
