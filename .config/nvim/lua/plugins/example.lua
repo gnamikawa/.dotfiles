@@ -41,12 +41,12 @@ return {
   },
   {
     "svermeulen/vim-cutlass",
-    config = function()
-      vim.keymap.set("n", "x", "d")
-      vim.keymap.set("v", "x", "d")
-      vim.keymap.set("n", "xx", "dd")
-      vim.keymap.set("n", "X", "D")
-    end
+    keys = {
+      { "x",  "d",  mode = 'n', desc = "Cut",      noremap = true },
+      { "x",  "d",  mode = 'v', desc = "Cut",      noremap = true },
+      { "xx", "dd", mode = 'n', desc = "Cut line", noremap = true },
+      { "X",  "D",  mode = 'n', desc = "Cut line", noremap = true },
+    }
   },
   {
     "lambdalisue/suda.vim",
