@@ -10,11 +10,11 @@ return {
   { "chentoast/marks.nvim" },
   { "kevinhwang91/promise-async" },
   { "nvim-lua/plenary.nvim" },
-  { "echasnovski/mini.pairs",                         enabled = false },
+  { "echasnovski/mini.pairs", enabled = false },
 
   {
     "sindrets/diffview.nvim",
-    keys = { { "<leader>gd", "<cmd>DiffviewOpen<CR>", desc = "Open side-by-side diff" } }
+    keys = { { "<leader>gd", "<cmd>DiffviewOpen<CR>", desc = "Open side-by-side diff" } },
   },
   {
     "simrat39/symbols-outline.nvim",
@@ -27,44 +27,44 @@ return {
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim"
-    }
+      "MunifTanjim/nui.nvim",
+    },
   },
   {
     "lambdalisue/suda.vim",
     init = function()
       vim.g.suda_smart_edit = 1
-    end
+    end,
   },
   {
     "Mofiqul/vscode.nvim",
     config = function()
-      require('vscode').load('dark')
-    end
+      require("vscode").load("dark")
+    end,
   },
   {
     "kevinhwang91/nvim-ufo",
     requires = {
-      "kevinhwang91/promise-async"
+      "kevinhwang91/promise-async",
     },
     config = function()
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
-        lineFoldingOnly = true
+        lineFoldingOnly = true,
       }
       local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
       for _, ls in ipairs(language_servers) do
-        require('lspconfig')[ls].setup({
-          capabilities = capabilities
+        require("lspconfig")[ls].setup({
+          capabilities = capabilities,
           -- you can add other fields for setting up lsp server in this table
         })
       end
-      require('ufo').setup()
+      require("ufo").setup()
 
-      vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-      vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
-    end
+      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+    end,
   },
   {
     "hrsh7th/nvim-cmp",
@@ -114,12 +114,14 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    init = function()
+      vim.g.autoformat = true
+    end,
     opts = {
-      autoformat = true,
       servers = { eslint = {} },
       setup = {
         eslint = function()
-          require("lazyvim.util").on_attach(function(client)
+          require("lazyvim.util").lsp.on_attach(function(client)
             if client.name == "eslint" then
               client.server_capabilities.documentFormattingProvider = true
             elseif client.name == "tsserver" then
@@ -131,10 +133,10 @@ return {
     },
   },
   {
-    "rbong/vim-flog"
+    "rbong/vim-flog",
   },
   {
-    "tpope/vim-fugitive"
+    "tpope/vim-fugitive",
   },
   {
     "williamboman/mason.nvim",
@@ -152,27 +154,27 @@ return {
   {
     "fedepujol/move.nvim",
     keys = {
-      { "<A-left>",   "<cmd>MoveHChar(-1)<CR>", desc = "Move char area left",    noremap = true },
-      { "<A-down>",   "<cmd>MoveLine(1)<CR>",   desc = "Move line area up",      noremap = true },
-      { "<A-up>",     "<cmd>MoveLine(-1)<CR>",  desc = "Move line area down",    noremap = true },
-      { "<A-right>",  "<cmd>MoveHChar(1)<CR>",  desc = "Move char area right",   noremap = true },
-      { "<leader>wf", "<cmd>MoveWord(1)<CR>",   desc = "Move word forward",      noremap = true },
-      { "<leader>wb", "<cmd>MoveWord(-1)<CR>",  desc = "Move word backward",     noremap = true },
-      { "<A-left>",   ":MoveHBlock(-1)<CR>",    desc = "Move visual area left",  mode = "v",    noremap = true },
-      { "<A-down>",   ":MoveBlock(1)<CR>",      desc = "Move visual area down",  mode = "v",    noremap = true },
-      { "<A-up>",     ":MoveBlock(-1)<CR>",     desc = "Move visual area up",    mode = "v",    noremap = true },
-      { "<A-right>",  ":MoveHBlock(1)<CR>",     desc = "Move visual area right", mode = "v",    noremap = true },
-    }
+      { "<A-left>", "<cmd>MoveHChar(-1)<CR>", desc = "Move char area left", noremap = true },
+      { "<A-down>", "<cmd>MoveLine(1)<CR>", desc = "Move line area up", noremap = true },
+      { "<A-up>", "<cmd>MoveLine(-1)<CR>", desc = "Move line area down", noremap = true },
+      { "<A-right>", "<cmd>MoveHChar(1)<CR>", desc = "Move char area right", noremap = true },
+      { "<leader>wf", "<cmd>MoveWord(1)<CR>", desc = "Move word forward", noremap = true },
+      { "<leader>wb", "<cmd>MoveWord(-1)<CR>", desc = "Move word backward", noremap = true },
+      { "<A-left>", ":MoveHBlock(-1)<CR>", desc = "Move visual area left", mode = "v", noremap = true },
+      { "<A-down>", ":MoveBlock(1)<CR>", desc = "Move visual area down", mode = "v", noremap = true },
+      { "<A-up>", ":MoveBlock(-1)<CR>", desc = "Move visual area up", mode = "v", noremap = true },
+      { "<A-right>", ":MoveHBlock(1)<CR>", desc = "Move visual area right", mode = "v", noremap = true },
+    },
   },
   {
     "lewis6991/gitsigns.nvim",
     config = {
       numhl = true,
-      word_diff = true
+      word_diff = true,
     },
     keys = {
       { "<leader>gw", ":Gitsigns toggle_word_diff<CR>", desc = "Toggle inline word diff", mode = "n", noremap = true },
-      { "<leader>gl", ":Gitsigns toggle_linehl<CR>",    desc = "Toggle inline line diff", mode = "n", noremap = true },
+      { "<leader>gl", ":Gitsigns toggle_linehl<CR>", desc = "Toggle inline line diff", mode = "n", noremap = true },
     },
     {
       "olrtg/emmet-language-server",
@@ -203,7 +205,7 @@ return {
           end,
         })
       end,
-    }
+    },
   },
   {
     "ribelo/taskwarrior.nvim",
@@ -219,11 +221,11 @@ return {
         end,
         desc = "Ongoing tasks",
         mode = "n",
-        noremap = true
-      }
-    }
+        noremap = true,
+      },
+    },
   },
   {
-    "xarthurx/taskwarrior.vim"
-  }
+    "xarthurx/taskwarrior.vim",
+  },
 }
