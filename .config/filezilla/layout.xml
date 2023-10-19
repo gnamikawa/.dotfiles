@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
-<FileZilla3 version="3.52.2" platform="*nix">
-	<Layout Builddate="2021-01-21" Buildtime="10:38:25">
+<FileZilla3 version="3.65.0" platform="*nix">
+	<Layout Builddate="2023-07-10" Buildtime="20:41:03">
 		<Resources>
-			<xrc file="netconfwizard.xrc" date="1611225505" />
-			<xrc file="dialogs.xrc" date="1611225505" />
+			<xrc file="netconfwizard.xrc" date="0" />
+			<xrc file="dialogs.xrc" date="0" />
 		</Resources>
 		<Language id="en_US" date="">
-			<Font font="Cantarell 11" width="839" height="19" />
-			<Dialog name="Settings" width="550" />
-			<Dialog name="Netconf" width="599" />
+			<Font font="Sans 10" width="836" height="17" />
 		</Language>
 	</Layout>
 </FileZilla3>
