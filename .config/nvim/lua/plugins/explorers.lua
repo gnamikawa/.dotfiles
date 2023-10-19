@@ -78,7 +78,7 @@ return {
       {
         "<leader>gls",
         function()
-          require("gitlab").review()
+          require("gitlab").summary()
         end,
         desc = "Gitlab summary",
       },
