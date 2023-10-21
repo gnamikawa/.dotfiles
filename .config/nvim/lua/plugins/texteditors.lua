@@ -18,12 +18,10 @@ return {
   {
     "fedepujol/move.nvim",
     keys = {
-      { "<A-left>", "<cmd>MoveHChar(-1)<CR>", desc = "Move char area left", noremap = true },
-      { "<A-down>", "<cmd>MoveLine(1)<CR>", desc = "Move line area up", noremap = true },
       { "<A-up>", "<cmd>MoveLine(-1)<CR>", desc = "Move line area down", noremap = true },
-      { "<A-right>", "<cmd>MoveHChar(1)<CR>", desc = "Move char area right", noremap = true },
-      { "<leader>wf", "<cmd>MoveWord(1)<CR>", desc = "Move word forward", noremap = true },
-      { "<leader>wb", "<cmd>MoveWord(-1)<CR>", desc = "Move word backward", noremap = true },
+      { "<A-down>", "<cmd>MoveLine(1)<CR>", desc = "Move line area up", noremap = true },
+      { "<A-right>", "<cmd>MoveWord(1)<CR>", desc = "Move word forward", noremap = true },
+      { "<A-left>", "<cmd>MoveWord(-1)<CR>", desc = "Move word backward", noremap = true },
       { "<A-left>", ":MoveHBlock(-1)<CR>", desc = "Move visual area left", mode = "v", noremap = true },
       { "<A-down>", ":MoveBlock(1)<CR>", desc = "Move visual area down", mode = "v", noremap = true },
       { "<A-up>", ":MoveBlock(-1)<CR>", desc = "Move visual area up", mode = "v", noremap = true },
