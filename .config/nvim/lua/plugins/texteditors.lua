@@ -31,6 +31,7 @@ return {
 
   {
     "kevinhwang91/nvim-ufo",
+    lazy = false,
     dependencies = {
       "kevinhwang91/promise-async",
     },
@@ -48,9 +49,26 @@ return {
         })
       end
       require("ufo").setup()
-
-      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
     end,
+    keys = {
+      {
+        "zR",
+        function()
+          require("ufo").openAllFolds()
+        end,
+        mode = "n",
+        desc = "Open all folds",
+        noremap = true,
+      },
+      {
+        "zM",
+        function()
+          require("ufo").closeAllFolds()
+        end,
+        mode = "v",
+        desc = "Close all folds",
+        noremap = true,
+      },
+    },
   },
 }
