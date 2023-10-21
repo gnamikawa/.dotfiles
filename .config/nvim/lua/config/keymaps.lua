@@ -14,7 +14,7 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- map("n", "<C-s>", ":<c-U>w<CR>", {})
-map("n", "<C-s>", ":<c-U>w<CR>", {})
-map("n", "<C-z>", "", {})
+-- map("n", "<C-s>", ":<c-U>w<CR>", {})
+-- map("n", "<C-z>", "", {})
 
 -- https://vi.stackexchange.com/questions/25259/clipboard-is-reset-after-first-paste-in-visual-mode
