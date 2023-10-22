@@ -3,17 +3,11 @@ return {
   { "xarthurx/taskwarrior.vim", enabled = false },
 
   {
-    "sindrets/diffview.nvim",
-    keys = { { "<leader>gd", "<cmd>DiffviewOpen<CR>", desc = "Open side-by-side diff" } },
-    enabled = false,
-  },
-
-  {
-    "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    config = true,
-    enabled = false,
+    "airblade/vim-gitgutter",
+    config = {
+      vim.g.gitgutter_highlight_linenrs == 1,
+      vim.g.gitgutter_map_keys == 0,
+    },
   },
 
   {
