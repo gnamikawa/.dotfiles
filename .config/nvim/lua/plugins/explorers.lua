@@ -209,8 +209,9 @@ return {
 
   {
     "kelly-lin/ranger.nvim",
+    lazy = false,
     config = function()
-      require("ranger-nvim").setup({ replace_netrw = true })
+      require("ranger-nvim").setup({ replace_netrw = true, enable_cmds = true, select_current_file = true })
       vim.api.nvim_set_keymap("n", "<leader>ef", "", {
         noremap = true,
         callback = function()
