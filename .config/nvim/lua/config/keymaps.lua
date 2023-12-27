@@ -17,4 +17,6 @@ end
 -- map("n", "<C-s>", ":<c-U>w<CR>", {})
 -- map("n", "<C-z>", "", {})
 
+map("n", "<C-\\>", "<cmd>!cd %:h && terminator<CR>", {})
+
 -- https://vi.stackexchange.com/questions/25259/clipboard-is-reset-after-first-paste-in-visual-mode
