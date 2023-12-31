@@ -3,6 +3,88 @@ return {
   { "xarthurx/taskwarrior.vim", enabled = false },
 
   {
+    "nvim-telescope/telescope.nvim",
+    keys = {
+      {
+        "<leader>sG",
+        function()
+          require("telescope.builtin").live_grep({ default_text = vim.fn.expand("<cword>") })
+        end,
+        desc = "Search word under cursor",
+        mode = "n",
+        noremap = true,
+      },
+    },
+  },
+
+  -- {
+  --   "axkirillov/easypick.nvim",
+  --   lazy = false,
+  --   dependencies = { "nvim-telescope/telescope.nvim" },
+  --   config = function()
+  --     local easypick = require("easypick")
+  --     local base_branch = "master"
+  --     local previewers = require("telescope.previewers")
+  --
+  --     local delta = previewers.new_termopen_previewer({
+  --       get_command = function(entry)
+  --         -- note we can't use pipes
+  --         -- this command is for git_commits and git_bcommits
+  --         return { "git", "-c", "core.pager=delta", "-c", "delta.side-by-side=false", "diff", entry.value .. "^!" }
+  --
+  --         -- this is for status
+  --         -- You can get the AM things in entry.status. So we are displaying file if entry.status == '??' or 'A '
+  --         -- just do an if and return a different command
+  --         -- return { 'git', '-c', 'core.pager=delta', '-c', 'delta.side-by-side=false', 'diff', entry.value }
+  --       end,
+  --     })
+  --
+  --     local my_git_commits = function(opts)
+  --       local builtin = require("telescope.builtin")
+  --       opts = opts or {}
+  --       opts.previewer = delta
+  --
+  --       builtin.git_commits(opts)
+  --     end
+  --
+  --     easypick.setup({
+  --       pickers = {
+  --         -- add your custom pickers here
+  --         -- below you can find some examples of what those can look like
+  --
+  --         -- diff current branch with base_branch and show files that changed with respective diffs in preview
+  --         {
+  --           -- name for your custom picker, that can be invoked using :Easypick <name> (supports tab completion)
+  --           name = "ls",
+  --           -- the command to execute, output has to be a list of plain text entries
+  --           command = "ls",
+  --           -- specify your custom previwer, or use one of the easypick.previewers
+  --           previewer = easypick.previewers.default(),
+  --         },
+  --
+  --         -- diff current branch with base_branch and show files that changed with respective diffs in preview
+  --         {
+  --           name = "changed_files",
+  --           command = "git diff --name-only $(git merge-base HEAD " .. base_branch .. " )",
+  --           -- previewer = easypick.previewers.default(),
+  --           previewer = easypick.previewers.file_diff(),
+  --         },
+  --
+  --         -- list files that have conflicts with diffs in preview
+  --         {
+  --           name = "conflicts",
+  --           command = "git diff --name-only --diff-filter=U --relative",
+  --           previewer = easypick.previewers.file_diff(),
+  --         },
+  --       },
+  --     })
+  --   end,
+  --   keys = {
+  --     { "<leader>gf", "<cmd>Easypick changed_files<CR>", desc = "Search changed files", mode = "n", noremap = true },
+  --   },
+  -- },
+
+  {
     "airblade/vim-gitgutter",
     config = {
       vim.g.gitgutter_highlight_linenrs == 1,
@@ -211,7 +293,7 @@ return {
     "kelly-lin/ranger.nvim",
     lazy = false,
     config = function()
-      require("ranger-nvim").setup({ replace_netrw = true, enable_cmds = true, select_current_file = true })
+      require("ranger-nvim").setup({ replace_netrw = false, enable_cmds = true, select_current_file = true })
       vim.api.nvim_set_keymap("n", "<leader>ef", "", {
         noremap = true,
         callback = function()
