@@ -40,6 +40,11 @@ exec --no-startup-id xfce4-power-manager
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id sbxkb
+exec_always --no-startup-id ntpdate -u pool.ntp.org
+
+# Disable Synaptics TouchPad
+exec_always --no-startup-id xinput set-prop "$(xinput --list | grep 'SynPS/2 Synaptics TouchPad' | awk '{print $6}' | cut -d'=' -f2)" "Device Enabled" 0
+
 
 exec --no-startup-id pa-applet
 exec --no-startup-id nm-applet
