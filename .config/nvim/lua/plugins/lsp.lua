@@ -8,6 +8,7 @@ return {
       table.insert(opts.sources, nls.builtins.formatting.shfmt)
       table.insert(opts.sources, nls.builtins.formatting.remark)
       table.insert(opts.sources, nls.builtins.formatting.qmlformat)
+      return opts
     end,
   },
 

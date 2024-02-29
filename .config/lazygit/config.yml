@@ -1,11 +1,13 @@
 gui:
-  splitdiff: 'always'
+  splitdiff: "always"
   authorColors:
-    'Genzo Namikawa': 'green'
-    '*': '#777777'
+    "Genzo Namikawa": "green"
+    "*": "#777777"
 git:
   log:
-    showGraph: 'always'
+    showGraph: "always"
     # displays the whole git graph by default in the commits panel (equivalent to passing the `--all` argument to `git log`)
     showWholeGraph: true
 quitOnTopLevelReturn: true
+services:
+  "git.mujin.co.jp": "gitlab:git.mujin.co.jp"
