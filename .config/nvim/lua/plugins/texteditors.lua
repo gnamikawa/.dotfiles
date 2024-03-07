@@ -31,37 +31,16 @@ return {
 
   {
     "kevinhwang91/nvim-ufo",
+    tag = "v1.2.0",
+    event = "LspAttach",
     dependencies = {
       "kevinhwang91/promise-async",
     },
-    config = {},
-    -- config = function(_, opts)
-    -- vim.api.nvim_create_autocmd("FileType", {
-    --   group = vim.api.nvim_create_augroup("local_detach_ufo", { clear = true }),
-    --   pattern = opts.filetype_exclude,
-    --   callback = function()
-    --     require("ufo").detach()
-    --   end,
-    -- })
-    --
-    -- vim.opt.foldlevelstart = 99
-    -- require("ufo").setup()
-    -- end,
-    -- config = function()
-    --   local capabilities = vim.lsp.protocol.make_client_capabilities()
-    --   capabilities.textDocument.foldingRange = {
-    --     dynamicRegistration = false,
-    --     lineFoldingOnly = true,
-    --   }
-    --   local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
-    --   for _, ls in ipairs(language_servers) do
-    --     require("lspconfig")[ls].setup({
-    --       capabilities = capabilities,
-    --       -- you can add other fields for setting up lsp server in this table
-    --     })
-    --   end
-    --   require("ufo").setup()
-    -- end,
+    opts = {
+      provider_selector = function(bufnr, filetype, buftype)
+        return { "treesitter", "indent" }
+      end,
+    },
     keys = {
       {
         "zR",
