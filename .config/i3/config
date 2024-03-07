@@ -111,7 +111,7 @@ bindsym $win+t exec "i3-sensible-terminal"
 bindsym Control+Shift+1 exec --no-startup-id scrot 'xclip -selection clipboard -t image/png -i $f'
 bindsym Control+Shift+4 --release exec --no-startup-id scrot -se 'xclip -selection clipboard -t image/png -i $f'
 bindsym Control+Shift+Escape exec "i3-sensible-terminal -e 'htop'"
-bindsym Control+Shift+r exec --no-startup-id "notify-send 'Starting recording' && ffmpeg -y -video_size 1920x1080 -framerate 30 -f x11grab -i $DISPLAY+0,0 -f alsa -ac 2 -i hw:0 /tmp/output.mkv"
+bindsym Control+Shift+r exec --no-startup-id "notify-send 'Starting recording' && ffmpeg -y -video_size 1920x1080 -framerate 30 -f x11grab -i $DISPLAY+0,0 -f alsa -ac 2 -i hw:0 /tmp/output.mp4"
 bindsym Control+Shift+s exec "notify-send 'Stopped recording' && pkill -n ffmpeg"
 
 bindsym XF86AudioMute exec "amixer set Master toggle"
