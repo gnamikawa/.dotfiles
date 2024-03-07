@@ -36,30 +36,19 @@ return {
     dependencies = {
       "kevinhwang91/promise-async",
     },
+    init = function()
+      vim.opt.foldenable = true
+      vim.opt.foldlevelstart = -1
+      vim.opt.foldlevel = 99
+      vim.opt.foldmethod = "manual"
+      vim.opt.foldcolumn = "4"
+      vim.opt.scrolloff = 20
+      vim.opt.relativenumber = false
+    end,
     opts = {
       provider_selector = function(bufnr, filetype, buftype)
         return { "treesitter", "indent" }
       end,
-    },
-    keys = {
-      {
-        "zR",
-        function()
-          require("ufo").openAllFolds()
-        end,
-        mode = "n",
-        desc = "Open all folds",
-        noremap = true,
-      },
-      {
-        "zM",
-        function()
-          require("ufo").closeAllFolds()
-        end,
-        mode = "v",
-        desc = "Close all folds",
-        noremap = true,
-      },
     },
   },
 }
