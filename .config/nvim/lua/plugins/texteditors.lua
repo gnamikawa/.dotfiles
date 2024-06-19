@@ -31,7 +31,6 @@ return {
 
   {
     "kevinhwang91/nvim-ufo",
-    tag = "v1.2.0",
     event = "LspAttach",
     dependencies = {
       "kevinhwang91/promise-async",
