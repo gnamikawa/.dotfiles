@@ -3,3 +3,5 @@ __pycache__
 .config/filezilla/sitemanager.xml
 .config/filezilla/filezilla.xml
 .config/filezilla/recentservers.xml
+.config/htop/htoprc
+.config/terminator/config
