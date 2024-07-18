@@ -37,13 +37,31 @@ return {
 
       return {
         sources = {
-          dontusereally,
+          -- typescript
           nls.builtins.formatting.prettierd,
-          nls.builtins.code_actions.gitsigns,
-          nls.builtins.formatting.qmlformat,
+
+          -- golang
+          nls.builtins.formatting.gofmt,
+
+          -- python
+          nls.builtins.formatting.black,
+          nls.builtins.diagnostics.pylint,
+          nls.builtins.formatting.isort,
+
+          -- markdown
           nls.builtins.formatting.remark,
+
+          -- qml
+          nls.builtins.formatting.qmlformat,
+
+          -- etc
+          nls.builtins.code_actions.gitsigns,
           nls.builtins.formatting.shfmt,
           nls.builtins.code_actions.refactoring,
+          nls.builtins.code_actions.impl,
+          -- nls.builtins.code_actions.ts_node_action,
+          nls.builtins.hover.printenv,
+          nls.builtins.hover.dictionary,
         },
       }
     end,
