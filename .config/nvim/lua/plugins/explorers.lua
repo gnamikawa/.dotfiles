@@ -105,7 +105,6 @@ return {
         popup_border_style = "rounded",
         enable_git_status = true,
         window = {
-          position = "current",
           mappings = {
             ["<space>"] = {
               "toggle_node",
