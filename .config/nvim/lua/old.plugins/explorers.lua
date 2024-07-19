@@ -3,7 +3,7 @@ return {
   { "xarthurx/taskwarrior.vim", enabled = false },
 
   {
-    "nvim-telescope/telescope.nvim",
+    "nvimrtelescope/telescope.nvim",
     keys = {
       {
         "<leader>sG",
