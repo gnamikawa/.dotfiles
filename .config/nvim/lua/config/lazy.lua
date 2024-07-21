@@ -20,4 +20,4 @@ require("lazy").setup({
   checker = { enabled = true }, -- automatically check for plugin updates
 })
 
-require("keymaps")
+require("config.keymaps")
