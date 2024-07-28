@@ -1,3 +1,3 @@
 return {
-    { "nvim-lualine/lualine.nvim", lazy = false, config = {} }
+  { "nvim-lualine/lualine.nvim", lazy = false, config = {} },
 }

@@ -36,10 +36,10 @@ return {
         -- defaults to false.
         annotate = false,
       },
-      mappings = {}
+      mappings = {},
     },
     keys = {
-      { "m<Del>", "<cmd>delm! | delm A-Z0-9<cr>", "n" }
-    }
+      { "m<Del>", "<cmd>delm! | delm A-Z0-9<cr>", "n" },
+    },
   },
 }

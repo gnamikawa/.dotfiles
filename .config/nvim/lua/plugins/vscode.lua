@@ -5,6 +5,6 @@ return {
     lazy = false,
     config = {
       transparent = true,
-    }
+    },
   },
 }
