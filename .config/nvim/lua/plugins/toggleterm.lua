@@ -16,7 +16,7 @@ return {
             },
             -- function to run on opening the terminal
             on_open = function()
-              vim.keymap.set("t", "<esc>", "<cmd>close<cr>")
+              -- vim.keymap.set("t", "<esc>", "<cmd>close<cr>")
             end,
           })
           lazygit:toggle()
