@@ -11,6 +11,7 @@ return {
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.diagnostics.eslint,
           null_ls.builtins.completion.spell,
+          null_ls.builtins.formatting.black,
         },
         on_attach = function(client, bufnr)
           if client.supports_method("textDocument/formatting") then
