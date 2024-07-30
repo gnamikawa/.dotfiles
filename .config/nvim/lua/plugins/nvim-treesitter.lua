@@ -7,6 +7,8 @@ return {
     keys = {
       { "<c-space>", desc = "Increment Selection" },
       { "<bs>", desc = "Decrement Selection", mode = "x" },
+      { "gd", function() vim.lsp.buf.definition() end, desc = "Go to definition", mode = "n" },
+      { "gr" , "<cmd>Telescope lsp_references<cr>", mode = "n"}
     },
     ---@type TSConfig
     ---@diagnostic disable-next-line: missing-fields
