@@ -45,7 +45,7 @@ return {
       vim.opt.timeoutlen = 200
     end,
     keys = {
-      { "<C-\\>",     "<cmd>!terminator<CR>",                     "n", {} },
+      -- { "<C-\\>",     "<cmd>!terminator<CR>",                     "n", {} },
 
       -- Move to window using the <ctrl> hjkl keys
       { "<C-h>",      "<C-w>h",                                   "n", { desc = "Go to Left Window", remap = true } },

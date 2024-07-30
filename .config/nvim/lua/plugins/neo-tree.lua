@@ -13,10 +13,13 @@ return {
       "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = {
+      source_selector = {
+        winbar = false,
+        statusline = false,
+      },
       close_if_last_window = true,
       popup_border_style = "rounded",
       enable_git_status = true,
-      enable_diagnostics = true,
       default_component_configs = {
         name = {
           use_git_status_colors = true,
@@ -46,8 +49,6 @@ return {
             ["y"] = "copy_to_clipboard",
             ["x"] = "cut_to_clipboard",
             ["p"] = "paste_from_clipboard",
-            ["<"] = "prev_source",
-            [">"] = "next_source",
             ["/"] = "filter_on_submit",
             ["<esc>"] = "clear_filter",
           },
