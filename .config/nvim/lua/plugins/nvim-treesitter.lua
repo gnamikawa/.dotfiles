@@ -4,9 +4,13 @@ return {
     lazy = false,
     build = ":TSUpdate",
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+    init = function()
+      vim.wo.foldmethod = 'expr'
+      vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    end,
     keys = {
-      { "<c-space>", desc = "Increment Selection" },
-      { "<bs>", desc = "Decrement Selection", mode = "x" },
+      -- { "<c-space>", desc = "Increment Selection" },
+      -- { "<bs>", desc = "Decrement Selection", mode = "x" },
       { "gd", function() vim.lsp.buf.definition() end, desc = "Go to definition", mode = "n" },
       { "gr" , "<cmd>Telescope lsp_references<cr>", mode = "n"}
     },
@@ -15,15 +19,15 @@ return {
     config = {
       highlight = { enable = true },
       indent = { enable = true },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
-      },
+      -- incremental_selection = {
+      --   enable = true,
+      --   keymaps = {
+      --     init_selection = "<C-space>",
+      --     node_incremental = "<C-space>",
+      --     scope_incremental = false,
+      --     node_decremental = "<bs>",
+      --   },
+      -- },
 
       textobjects = {
         move = {
