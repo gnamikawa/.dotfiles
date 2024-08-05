@@ -52,16 +52,24 @@ return {
             s = cmp.mapping.confirm({ select = true }),
             c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
           }),
-          ["<S-j>"] = cmp.mapping(function()
-            if cmp.visible() then
-              cmp.select_next_item()
-            end
-          end),
-          ["<S-k>"] = cmp.mapping(function()
-            if cmp.visible() then
-              cmp.select_prev_item()
-            end
-          end),
+          ["<Tab>"] = cmp.mapping({
+            i = function(fallback)
+              if cmp.visible() then
+                cmp.select_next_item()
+              else
+                fallback()
+              end
+            end,
+          }),
+          ["<S-Tab>"] = cmp.mapping({
+            i = function(fallback)
+              if cmp.visible() then
+                cmp.select_prev_item()
+              else
+                fallback()
+              end
+            end,
+          }),
           -- ["<S-j>"] = cmp.mapping(function(fallback)
           --   if cmp.visible() then
           --     cmp.select_next_item()
