@@ -11,3 +11,5 @@ git:
 quitOnTopLevelReturn: true
 services:
   "git.mujin.co.jp": "gitlab:git.mujin.co.jp"
+os:
+  editPreset: "nvim"
