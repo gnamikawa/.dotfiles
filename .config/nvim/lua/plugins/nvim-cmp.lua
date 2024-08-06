@@ -41,6 +41,7 @@ return {
         },
         preselect = auto_select and cmp.PreselectMode.Item or cmp.PreselectMode.None,
         mapping = cmp.mapping.preset.insert({
+          ["<C-Space>"] = cmp.mapping.complete(),
           ["<CR>"] = cmp.mapping({
             i = function(fallback)
               if cmp.visible() then
