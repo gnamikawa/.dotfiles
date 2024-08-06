@@ -14,10 +14,6 @@ return {
             float_opts = {
               border = "rounded",
             },
-            -- function to run on opening the terminal
-            on_open = function()
-              -- vim.keymap.set("t", "<esc>", "<cmd>close<cr>")
-            end,
           })
           lazygit:toggle()
         end,
