@@ -48,5 +48,8 @@ return {
         end,
       })
     end,
+    keys = {
+      { "<leader>ca", function() vim.lsp.buf.code_action() end, desc = "Code Action" }
+    }
   },
 }
