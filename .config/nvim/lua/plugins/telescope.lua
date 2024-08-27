@@ -3,7 +3,9 @@ return {
     "nvim-telescope/telescope.nvim",
 
     cmd = "Telescope",
-    version = false, -- telescope did only one release, so use HEAD for now
+    -- version = false, -- telescope did only one release, so use HEAD for now
+    tag = "0.1.8",
+    dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
       {
         "<C-p>",
@@ -136,7 +138,7 @@ return {
               ["K"] = actions.preview_scrolling_up,
             },
             n = {
-              -- ["q"] = actions.close,
+              ['q'] = actions.close,
               ["J"] = actions.preview_scrolling_down,
               ["K"] = actions.preview_scrolling_up,
             },
