@@ -12,7 +12,7 @@ return {
       -- { "<c-space>", desc = "Increment Selection" },
       -- { "<bs>", desc = "Decrement Selection", mode = "x" },
       { "gd",  function() vim.lsp.buf.definition() end, desc = "Go to definition", mode = "n" },
-      { "gr",  "<cmd>Telescope lsp_references<cr>",     mode = "n" }
+      { "gr",  function() vim.lsp.buf.references() end, desc = "Go to references", mode = "n" }
     },
     config = function()
       ---@type TSConfig

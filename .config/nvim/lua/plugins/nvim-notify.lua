@@ -10,7 +10,7 @@ return {
         desc = "Dismiss All Notifications",
       },
     },
-    config = {
+    opt = {
       stages = "static",
       timeout = 3000,
       max_height = function()
@@ -23,5 +23,13 @@ return {
         vim.api.nvim_win_set_config(win, { zindex = 100 })
       end,
     },
+    config = function(opts)
+      local notify = require("notify")
+      notify.setup(opts)
+
+      vim.notify = function(message, level, opts)
+        return notify(message, level, opts) -- <-- Important to return the value from `nvim-notify`
+      end
+    end,
   },
 }

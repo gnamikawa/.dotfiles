@@ -45,7 +45,7 @@ return {
       vim.opt.timeoutlen = 200
     end,
     keys = {
-      -- { "<C-\\>",     "<cmd>!terminator<CR>",                     "n", {} },
+      { "<C-\\>",     "<cmd>!terminator<CR>",                     "n", {} },
 
       -- Move to window using the <ctrl> hjkl keys
       { "<C-h>",      "<C-w>h",                                   "n", { desc = "Go to Left Window", remap = true } },
@@ -147,7 +147,7 @@ return {
       { "<leader><tab>[",     "<cmd>tabprevious<cr>", "n", { desc = "Previous Tab" } },
 
       -- Terminal Mappings
-      { "<esc><esc>",         "<c-\\><c-n>",          "t", { desc = "Enter Normal Mode" } },
+      -- { "<esc><esc>",         "<c-\\><c-n>",          "t", { desc = "Enter Normal Mode" } },
       { "<C-h>",              "<cmd>wincmd h<cr>",    "t", { desc = "Go to Left Window" } },
       { "<C-j>",              "<cmd>wincmd j<cr>",    "t", { desc = "Go to Lower Window" } },
       { "<C-k>",              "<cmd>wincmd k<cr>",    "t", { desc = "Go to Upper Window" } },

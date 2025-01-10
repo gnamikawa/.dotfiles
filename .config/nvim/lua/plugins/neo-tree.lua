@@ -27,7 +27,8 @@ return {
       },
       filesystem = {
         hijack_netrw_behavior = "open_default",
-        use_libuv_file_watcher = true,
+        -- use_libuv_file_watcher = true,
+        use_libuv_file_watcher = false,
         window = {
           mappings = {
             ["l"] = "open",

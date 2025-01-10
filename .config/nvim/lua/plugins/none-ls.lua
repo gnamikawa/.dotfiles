@@ -32,24 +32,37 @@ return {
           -- null_ls.builtins.code_actions.ts_node_action,
           null_ls.builtins.hover.printenv,
           null_ls.builtins.hover.dictionary,
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.formatting.prettier,
+          null_ls.builtins.formatting.eslint_d,
+          null_ls.builtins.diagnostics.tsc,
         },
         on_attach = function(client, bufnr)
           local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+          vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+
           if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePre", {
               group = augroup,
               buffer = bufnr,
               callback = function()
-                vim.lsp.buf.format()
+                vim.lsp.buf.format({ async = false })
               end,
             })
           end
+
+          -- vim.api.nvim_create_autocmd("BufWritePost", {
+          --   group = augroup,
+          --   buffer = bufnr,
+          --   callback = function()
+          --     print("<cmd>Dispatch npx tsc --noEmit --removeComments<cr>")
+          --     vim.cmd.normal(":Dispatch npx tsc --noEmit --removeComments")
+          --   end,
+          -- })
+          -- if client.supports_method("textDocument/formatting") then
+          -- end
         end,
       })
     end,
-    keys = {
-      { "<leader>ca", function() vim.lsp.buf.code_action() end, desc = "Code Action" }
-    }
   },
 }

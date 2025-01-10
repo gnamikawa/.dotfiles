@@ -1,3 +1,6 @@
+local builtin = require("telescope.builtin")
+local utils = require("telescope.utils")
+
 return {
   {
     "nvim-telescope/telescope.nvim",
@@ -13,7 +16,7 @@ return {
         desc = "Switch Buffer",
       },
       -- { "<leader>/", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
-      { "<leader>:",  "<cmd>Telescope command_history<cr>", desc = "Command History" },
+      { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
       {
         "<leader><space>",
         "<cmd>Telescope find_files<cr>",
@@ -24,16 +27,16 @@ return {
         "<cmd>Telescope git_files<cr>",
         desc = "Find Files (git-files)",
       },
-      { "<leader>fr", "<cmd>Telescope oldfiles<cr>",        desc = "Recent" },
+      { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
       -- git
-      { "<leader>gc", "<cmd>Telescope git_commits<CR>",     desc = "Commits" },
-      { "<leader>gs", "<cmd>Telescope git_status<CR>",      desc = "Status" },
+      { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
+      { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
       -- search
-      { '<leader>s"', "<cmd>Telescope registers<cr>",       desc = "Registers" },
-      { "<leader>sa", "<cmd>Telescope autocommands<cr>",    desc = "Auto Commands" },
-      { "<leader>sb", "current_buffer_fuzzy_find",          desc = "Current buffer" },
+      { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
+      { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
+      { "<leader>sb", "current_buffer_fuzzy_find", desc = "Current buffer" },
       { "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<leader>sC", "<cmd>Telescope commands<cr>",        desc = "Commands" },
+      { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
       {
         "<leader>sd",
         "<cmd>Telescope diagnostics bufnr=0<cr>",
@@ -51,14 +54,14 @@ return {
         "<cmd>Telescope highlights<cr>",
         desc = "Search Highlight Groups",
       },
-      { "<leader>sj", "<cmd>Telescope jumplist<cr>",     desc = "Jumplist" },
-      { "<leader>sk", "<cmd>Telescope keymaps<cr>",      desc = "Key Maps" },
-      { "<leader>sl", "<cmd>Telescope loclist<cr>",      desc = "Location List" },
-      { "<leader>sM", "<cmd>Telescope man_pages<cr>",    desc = "Man Pages" },
-      { "<leader>sm", "<cmd>Telescope marks<cr>",        desc = "Jump to Mark" },
-      { "<leader>so", "<cmd>Telescope vim_options<cr>",  desc = "Options" },
-      { "<leader>sR", "<cmd>Telescope resume<cr>",       desc = "Resume" },
-      { "<leader>sq", "<cmd>Telescope quickfix<cr>",     desc = "Quickfix List" },
+      { "<leader>sj", "<cmd>Telescope jumplist<cr>", desc = "Jumplist" },
+      { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
+      { "<leader>sl", "<cmd>Telescope loclist<cr>", desc = "Location List" },
+      { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+      { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
+      { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
+      { "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
+      { "<leader>sq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix List" },
       { "<leader>sw", "<cmd>Telescoipe grep_string<cr>", desc = "Word (Root Dir)" },
       {
         "<leader>ss",
@@ -138,9 +141,9 @@ return {
               ["K"] = actions.preview_scrolling_up,
             },
             n = {
-              ['q'] = actions.close,
               ["J"] = actions.preview_scrolling_down,
               ["K"] = actions.preview_scrolling_up,
+              ["<esc>"] = actions.close,
             },
           },
         },
@@ -149,10 +152,15 @@ return {
             hidden = true,
           },
           current_buffer_fuzzy_find = {
-            theme = "ivy"
-          }
+            theme = "ivy",
+          },
         },
       }
+    end,
+
+    config = function(opts)
+      -- require('telescope').setup(opts)
+      -- vim.keymap.del("n", "gr") -- Disable Goto References mapping
     end,
   },
 }

@@ -89,10 +89,11 @@ return {
           --     feedkey("<Plug>(vsnip-jump-prev)", "")
           --   end
           -- end, { "n", "s" }),
-          ["<Esc>"] = function(fallback)
-            cmp.abort()
-            fallback()
-          end,
+
+          -- ["<Esc>"] = function(fallback)
+          --   cmp.abort()
+          --   fallback()
+          -- end,
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
@@ -130,5 +131,5 @@ return {
       }
     end,
     -- main = "lazyvim.util.cmp",
-  }
+  },
 }

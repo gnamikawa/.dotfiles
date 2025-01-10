@@ -73,18 +73,25 @@ return {
       },
     },
     config = {
+      routes = {
+        {
+          view = "notify",
+          filter = { event = "msg_showmode" },
+        },
+      },
       messages = {
-        enabled = true, -- enables the Noice messages UI
-        view = "mini", -- default view for messages
-        view_error = "mini", -- view for errors
-        view_warn = "mini", -- view for warnings
+        enabled = true,        -- enables the Noice messages UI
+        view = "mini",         -- default view for messages
+        view_error = "mini",   -- view for errors
+        view_warn = "mini",    -- view for warnings
         view_history = "mini", -- view for :messages
       },
       notify = {
         view = "mini",
       },
       presets = {
-        bottom_search = true
+        bottom_search = true,
+        inc_rename = true, -- enables an input dialog for inc-rename.nvim
       },
     },
   },

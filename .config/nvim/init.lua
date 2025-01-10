@@ -110,7 +110,7 @@ opt.virtualedit = "block" -- Allow cursor to move where there is no text in visu
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
-opt.autochdir = true
+opt.autochdir = false
 
 -- if vim.fn.has("nvim-0.10") == 1 then
 -- 	opt.smoothscroll = true
