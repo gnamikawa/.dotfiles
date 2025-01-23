@@ -4,6 +4,7 @@ return {
     priority = 1000,
     lazy = false,
     config = {},
+    enabled = false,
   },
   {
     "catppuccin/nvim",
@@ -11,5 +12,6 @@ return {
     lazy = false,
     priority = 1000,
     config = {},
+    enabled = false,
   },
 }
