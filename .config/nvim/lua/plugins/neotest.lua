@@ -1,0 +1,28 @@
+return {
+  -- { "nvim-neotest/nvim-nio" },
+  -- { "nvim-neotest/neotest-jest", commit = "28e0de3337eb78b18859f38746aa6eb6fea0716f" },
+  -- { "nvim-neotest/neotest-python" },
+  -- {
+  --   "nvim-neotest/neotest",
+  --   lazy = false,
+  --   config = function()
+  --     require("neotest").setup({
+  --       adapters = {
+  --         require("neotest-jest")({
+  --           jestCommand = "npm test --",
+  --           jestConfigFile = "node_modules/@mujin/ora/config/jest.config.js",
+  --           env = { CI = true },
+  --           cwd = function(path)
+  --             return vim.fn.getcwd()
+  --           end,
+  --         }),
+  --         require("neotest-python")({
+  --           dap = { justMyCode = false },
+  --           args = { "--output", "/tmp/playwright", "--tracing", "retain-on-failure", "--headed" },
+  --           -- runner = 'ssh servermujinsimulator -t "pytest --output /tmp/playwright --tracing retain-on-failure --headed"',
+  --         }),
+  --       },
+  --     })
+  --   end,
+  -- },
+}

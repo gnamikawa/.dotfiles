@@ -1,4 +1,4 @@
-# i3 config file
+# i3 config File
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -41,6 +41,7 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id sbxkb
 exec_always --no-startup-id ntpdate -u pool.ntp.org
+exec_always --no-startup-id killall conky && conky --daemonize
 
 # Disable Synaptics TouchPad
 exec_always --no-startup-id xinput set-prop "$(xinput --list | grep 'SynPS/2 Synaptics TouchPad' | awk '{print $6}' | cut -d'=' -f2)" "Device Enabled" 0

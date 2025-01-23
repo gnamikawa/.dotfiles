@@ -2,6 +2,7 @@ return {
   {
     "lewis6991/satellite.nvim",
     lazy = false,
+    tag = "v1.0.0",
     config = {
       current_only = false,
       winblend = 50,
