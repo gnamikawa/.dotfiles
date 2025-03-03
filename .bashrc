@@ -10,7 +10,7 @@ arr=(
 for key in "${!arr[@]}"; do
 	value=${arr[$key]}
 	if [[ -d $value ]]; then
-		eval "function edit$key() { cd $value; nvim .; }"
+		eval "function edit$key() { cd $value; $EDITOR .; }"
 	elif [[ -f $value ]]; then
 		eval "function edit$key() { nvim $value; }"
 	else
