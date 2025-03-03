@@ -1,14 +1,15 @@
-# Define convinience functions for configuration scripts and directories
-declare -A arr
-arr=(
+declare -A editables
+editables=(
 	["bashrc"]="$HOME/.bashrc"
 	["configs"]="$HOME/.config"
 	["nvim"]="$HOME/.config/nvim"
 	["nixos"]="$HOME/repositories/system-nix"
 	["dotfiles"]="$HOME/repositories/.dotfiles"
 )
-for key in "${!arr[@]}"; do
-	value=${arr[$key]}
+
+# Define convinience functions for configuration scripts and directories
+for key in "${!editables[@]}"; do
+	value=${editables[$key]}
 	if [[ -d $value ]]; then
 		eval "function edit$key() { cd $value; $EDITOR .; }"
 	elif [[ -f $value ]]; then
