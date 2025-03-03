@@ -21,3 +21,6 @@ done
 
 alias resource='source "$HOME/.bashrc"'
 alias editrepository='find $HOME/repositories/ -mindepth 1 -maxdepth 1 -type d -print | fzf | xargs -I{} nvim {}'
+
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
