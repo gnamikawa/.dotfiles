@@ -20,6 +20,4 @@ for key in "${!editables[@]}"; do
 	fi
 done
 
-function resource {
-	source "$HOME/.bashrc"
-}
+alias resource='source "$HOME/.bashrc"'
