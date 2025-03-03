@@ -5,6 +5,7 @@ editables=(
 	["nvim"]="$HOME/.config/nvim"
 	["nixos"]="$HOME/repositories/system-nix"
 	["dotfiles"]="$HOME/repositories/.dotfiles"
+	["repositories"]="$HOME/repositories"
 )
 
 # Define convinience functions for configuration scripts and directories
