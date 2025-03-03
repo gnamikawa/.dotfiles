@@ -5,7 +5,6 @@ editables=(
 	["nvim"]="$HOME/.config/nvim"
 	["nixos"]="$HOME/repositories/system-nix"
 	["dotfiles"]="$HOME/repositories/.dotfiles"
-	["repositories"]="$HOME/repositories"
 )
 
 # Define convinience functions for configuration scripts and directories
@@ -21,3 +20,4 @@ for key in "${!editables[@]}"; do
 done
 
 alias resource='source "$HOME/.bashrc"'
+alias editrepository='find $HOME/repositories/ -mindepth 1 -maxdepth 1 -type d -print | fzf | xargs -I{} nvim {}'
