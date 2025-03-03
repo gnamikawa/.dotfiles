@@ -7,7 +7,7 @@ arr=(
 	["nixos"]="$HOME/repositories/system-nix"
 	["dotfiles"]="$HOME/repositories/.dotfiles"
 )
-for key in ${!arr[@]}; do
+for key in "${!arr[@]}"; do
 	value=${arr[$key]}
 	if [[ -d $value ]]; then
 		eval "function edit$key() { cd $value; nvim .; }"
