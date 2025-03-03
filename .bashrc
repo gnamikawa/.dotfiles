@@ -4,7 +4,7 @@ arr=(
 	["bashrc"]="$HOME/.bashrc"
 	["configs"]="$HOME/.config"
 	["nvim"]="$HOME/.config/nvim"
-	["nixos"]="/etc/nixos"
+	["nixos"]="$HOME/repositories/system-nix"
 	["dotfiles"]="$HOME/repositories/.dotfiles"
 )
 for key in ${!arr[@]}; do
