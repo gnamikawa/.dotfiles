@@ -109,6 +109,7 @@ bindsym $mod+Shift+r exec "i3-msg restart"
 
 bindsym $mod+F3 exec --no-startup-id "dmenu_run -m 0"
 bindsym $win+t exec "i3-sensible-terminal"
+bindsym $win+b exec "$BROWSER"
 bindsym Control+Shift+1 exec --no-startup-id scrot 'xclip -selection clipboard -t image/png -i $f'
 bindsym Control+Shift+4 --release exec --no-startup-id scrot -se 'xclip -selection clipboard -t image/png -i $f'
 bindsym Control+Shift+Escape exec "i3-sensible-terminal -e 'htop'"
