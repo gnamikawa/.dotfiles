@@ -59,7 +59,6 @@ exec --no-startup-id blueman-applet
 # exec --no-startup-id start_conky_green
 # exec --no-startup-id xautolock -time 10 -locker blurlock
 
-bindsym $mod+Ctrl+m exec pavucontrol
 
 # variables
 set $mod mod1
@@ -99,6 +98,8 @@ bar {
 # KEYBINDINGS
 # Use xev to get key names
 #
+
+bindsym $mod+Ctrl+m exec pavucontrol
 
 bindsym $mod+r exec ranger
 bindsym $mod+F4 kill
