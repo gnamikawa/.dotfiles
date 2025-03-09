@@ -52,6 +52,7 @@ function mkrepo {
 		echo "$1" >>"README.md"
 		git add .
 		git commit -m "Initial Commit"
+		cd - || exit 1
 	else
 		echo "Project already exists refusing to create project."
 	fi
