@@ -15,9 +15,9 @@ editables=(
 for key in "${!editables[@]}"; do
 	value=${editables[$key]}
 	if [[ -d $value ]]; then
-		eval "function edit$key() { cd $value; $EDITOR .; }"
+		eval "function edit$key() { $EDITOR .; }"
 	elif [[ -f $value ]]; then
-		eval "function edit$key() { nvim $value; }"
+		eval "function edit$key() { $EDITOR $value; }"
 	else
 		echo "$key's value is not valid: $value. Skipping."
 	fi
