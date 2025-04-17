@@ -5,3 +5,5 @@
 vim.g.snacks_animate = false
 vim.g.minipairs_disable = true
 vim.o.relativenumber = false
+vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldmethod = "expr"
